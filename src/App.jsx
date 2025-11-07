@@ -31,8 +31,14 @@ function App() {
   };
 
   const [isAddRestaurantModalOpen, setIsAddRestaurantModalOpen] = useState(false);
-  const handleAddRestaurant = (newRestaurant) => {
-    setRestaurants((restaurantList) => [newRestaurant, ...restaurantList]);
+
+  const handleAddRestaurant = async (restaurant) => {
+    await fetch('http://localhost:3000/restaurants', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(restaurant),
+    });
+    fetchRestaurants();
   };
 
   return (
