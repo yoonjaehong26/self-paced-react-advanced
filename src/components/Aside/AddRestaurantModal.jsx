@@ -1,7 +1,12 @@
 import { useState } from 'react';
-import styles from './RestaurantModal.module.css';
 import Modal from '../ui/Modal';
 import { CATEGORIES, CATEGORY_IMAGE } from '../../data/restaurantCategories';
+import {
+  ModalTitle,
+  FormItem, FormItemRequired,
+  ButtonContainer,
+  ButtonPrimary,
+} from './RestaurantModal.styles';
 
 function AddRestaurantModal({ onAddRestaurant, onClose }) {
   const [category, setCategory] = useState('');
@@ -22,10 +27,10 @@ function AddRestaurantModal({ onAddRestaurant, onClose }) {
 
   return (
     <Modal onClose={onClose}>
-      <h2 className={`${styles.modalTitle} text-title`}>새로운 음식점</h2>
+      <ModalTitle>새로운 음식점</ModalTitle>
       <form>
-        <div className={`${styles.formItem} ${styles.formItemRequired}`}>
-          <label htmlFor="category" className="text-caption">카테고리</label>
+        <FormItemRequired>
+          <label htmlFor="category">카테고리</label>
           <select name="category" id="category" required value={category} onChange={(e) => setCategory(e.target.value)}>
             <option value="">선택해 주세요</option>
             {CATEGORIES.filter((c) => c !== '전체').map((categoryOption) => (
@@ -34,24 +39,24 @@ function AddRestaurantModal({ onAddRestaurant, onClose }) {
               </option>
             ))}
           </select>
-        </div>
+        </FormItemRequired>
 
-        <div className={`${styles.formItem} ${styles.formItemRequired}`}>
-          <label htmlFor="name" className="text-caption">이름</label>
+        <FormItemRequired>
+          <label htmlFor="name">이름</label>
           <input type="text" name="name" id="name" required value={name} onChange={(e) => setName(e.target.value)} />
-        </div>
+        </FormItemRequired>
 
-        <div className={styles.formItem}>
-          <label htmlFor="description" className="text-caption">설명</label>
+        <FormItem>
+          <label htmlFor="description">설명</label>
           <textarea name="description" id="description" cols="30" rows="5" value={description} onChange={(e) => setDescription(e.target.value)} />
-          <span className={`${styles.helpText} text-caption`}>메뉴 등 추가 정보를 입력해 주세요.</span>
-        </div>
+          <span className="helpText">메뉴 등 추가 정보를 입력해 주세요.</span>
+        </FormItem>
 
-        <div className={styles.buttonContainer}>
-          <button type="button" className={`${styles.button} ${styles.buttonPrimary} text-caption`} onClick={handleAddRestaurant}>
+        <ButtonContainer>
+          <ButtonPrimary type="button" onClick={handleAddRestaurant}>
             추가하기
-          </button>
-        </div>
+          </ButtonPrimary>
+        </ButtonContainer>
       </form>
     </Modal>
   );
