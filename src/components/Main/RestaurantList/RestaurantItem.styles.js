@@ -1,22 +1,24 @@
-.restaurant {
-  border-bottom: 1px solid #e9eaed;
-  position: relative; 
-}
+import styled from 'styled-components';
 
-.restaurantButton {
+export const RestaurantListItem = styled.li`
+  border-bottom: 1px solid var(--grey-200);
+  position: relative;
+`;
+
+export const RestaurantButton = styled.button`
   background: none;
   border: none;
   padding: 16px 8px;
   margin: 0;
   font: inherit;
   cursor: pointer;
-  text-align: left; 
-  width: 100%; 
+  text-align: left;
+  width: 100%;
   display: flex;
   align-items: flex-start;
-}
+`;
 
-.restaurantCategory {
+export const RestaurantCategory = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -27,28 +29,32 @@
   margin-right: 16px;
   border-radius: 50%;
   background: var(--lighten-color);
-}
+`;
 
-.categoryIcon {
+export const CategoryIcon = styled.img`
   width: 36px;
   height: 36px;
-}
+`;
 
-.restaurantInfo {
+export const RestaurantInfo = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-}
+`;
 
-.restaurantName {
+export const RestaurantName = styled.h3`
   margin: 0;
-}
+  font-size: 18px;
+  font-weight: 600; 
+`;
 
-.restaurantDescription {
+export const RestaurantDescription = styled.p`
   display: -webkit-box;
   padding-top: 8px;
   overflow: hidden;
   text-overflow: ellipsis;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
-}
+  font-size: 14px; 
+  color: var(--grey-400); 
+`;

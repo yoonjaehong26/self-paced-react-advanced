@@ -1,27 +1,31 @@
-import styles from './RestaurantItem.module.css';
+import React from 'react';
 import { CATEGORY_IMAGE } from '../../../data/restaurantCategories';
+import {
+  RestaurantListItem,
+  RestaurantButton,
+  RestaurantCategory,
+  CategoryIcon,
+  RestaurantInfo,
+  RestaurantName,
+  RestaurantDescription,
+} from './RestaurantItem.styles';
 
 function RestaurantItem({ restaurant, onRestaurantClick }) {
   return (
-    <li className={styles.restaurant}>
-      <button type="button" className={styles.restaurantButton} onClick={() => onRestaurantClick(restaurant)}>
-        <div className={styles.restaurantCategory}>
-          <img
+    <RestaurantListItem>
+      <RestaurantButton type="button" onClick={() => onRestaurantClick(restaurant)}>
+        <RestaurantCategory>
+          <CategoryIcon
             src={CATEGORY_IMAGE[restaurant.category]}
             alt={restaurant.category}
-            className={styles.categoryIcon}
           />
-        </div>
-        <div className={styles.restaurantInfo}>
-          <h3 className={`${styles.restaurantName} text-subtitle`}>
-            {restaurant.name}
-          </h3>
-          <p className={`${styles.restaurantDescription} text-body`}>
-            {restaurant.description}
-          </p>
-        </div>
-      </button>
-    </li>
+        </RestaurantCategory>
+        <RestaurantInfo>
+          <RestaurantName>{restaurant.name}</RestaurantName>
+          <RestaurantDescription>{restaurant.description}</RestaurantDescription>
+        </RestaurantInfo>
+      </RestaurantButton>
+    </RestaurantListItem>
   );
 }
 
