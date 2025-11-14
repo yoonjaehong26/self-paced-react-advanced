@@ -1,12 +1,6 @@
-.modal {
-  display: none;
-}
+import styled from 'styled-components';
 
-.modalOpen {
-  display: block;
-}
-
-.modalBackdrop {
+export const ModalBackdrop = styled.div`
   position: fixed;
   top: 0;
   right: 0;
@@ -14,10 +8,9 @@
   left: 0;
 
   background: rgba(0, 0, 0, 0.35);
-}
+`;
 
-
-.modalContainer {
+export const ModalContainer = styled.div`
   position: fixed;
   bottom: 0;
   width: 100%;
@@ -26,4 +19,4 @@
 
   border-radius: 8px 8px 0px 0px;
   background: var(--grey-100);
-}
+`;

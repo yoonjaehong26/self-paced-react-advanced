@@ -1,5 +1,8 @@
 import React, { useRef } from 'react';
-import styles from './Modal.module.css';
+
+import {
+  ModalBackdrop, ModalContainer,
+} from './Modal.styles';
 
 function Modal({ children, onClose }) {
   const modalContentRef = useRef(null);
@@ -18,17 +21,16 @@ function Modal({ children, onClose }) {
   };
 
   return (
-    <div
-      className={styles.modalBackdrop}
+    <ModalBackdrop
       onClick={handleBackdropClick}
       onKeyDown={handleKeyDown}
       role="button"
       tabIndex={0}
     >
-      <div ref={modalContentRef} className={styles.modalContainer}>
+      <ModalContainer ref={modalContentRef}>
         {children}
-      </div>
-    </div>
+      </ModalContainer>
+    </ModalBackdrop>
   );
 }
 
