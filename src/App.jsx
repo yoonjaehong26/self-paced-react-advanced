@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
-import HomeHeader from './components/header/HomeHeader';
-import RestaurantCategoryFilter from './components/main/RestaurantCategoryFilter';
-import RestaurantList from './components/main/restaurantList';
+import HomeHeader from './components/Header/HomeHeader';
+import RestaurantCategoryFilter from './components/Main/RestaurantCategoryFilter';
+import RestaurantList from './components/Main/RestaurantList';
 import RestaurantDetailModal from './components/aside/RestaurantDetailModal';
 import AddRestaurantModal from './components/aside/AddRestaurantModal';
 

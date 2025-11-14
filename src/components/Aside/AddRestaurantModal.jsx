@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import Modal from '../ui/Modal';
+import Modal from '../UI/Modal';
 import { CATEGORIES, CATEGORY_IMAGE } from '../../data/restaurantCategories';
 import {
   ModalTitle,

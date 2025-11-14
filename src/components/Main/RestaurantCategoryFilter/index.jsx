@@ -1,4 +1,4 @@
-import Filter from '../../ui/Filter';
+import Filter from '../../UI/Filter';
 import { CATEGORIES } from '../../../data/restaurantCategories';
 import RestaurantFilterContainer from './RestaurantCategoryFilter.styles';
 

@@ -1,4 +1,4 @@
-import Button from '../../ui/Button';
+import Button from '../../UI/Button';
 import { Gnb, GnbTitle } from './HomeHeader.styles';
 
 function HomeHeader({ onRestaurantAddButtonClick }) {
