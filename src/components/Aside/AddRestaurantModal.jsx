@@ -4,7 +4,6 @@ import { CATEGORIES, CATEGORY_IMAGE } from '../../data/restaurantCategories';
 import {
   ModalTitle,
   FormItem,
-  FormItemRequired,
   ButtonContainer,
   ButtonPrimary,
 } from './RestaurantModal.styles';
@@ -30,7 +29,7 @@ function AddRestaurantModal({ onAddRestaurant, onClose }) {
     <Modal onClose={onClose}>
       <ModalTitle>새로운 음식점</ModalTitle>
       <form>
-        <FormItemRequired>
+        <FormItem $required>
           <label htmlFor="category">카테고리</label>
           <select
             name="category"
@@ -46,9 +45,9 @@ function AddRestaurantModal({ onAddRestaurant, onClose }) {
               </option>
             ))}
           </select>
-        </FormItemRequired>
+        </FormItem>
 
-        <FormItemRequired>
+        <FormItem $required>
           <label htmlFor="name">이름</label>
           <input
             type="text"
@@ -58,7 +57,7 @@ function AddRestaurantModal({ onAddRestaurant, onClose }) {
             value={name}
             onChange={e => setName(e.target.value)}
           />
-        </FormItemRequired>
+        </FormItem>
 
         <FormItem>
           <label htmlFor="description">설명</label>

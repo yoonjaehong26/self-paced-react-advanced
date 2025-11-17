@@ -17,6 +17,16 @@ export const FormItem = styled.div`
     font-size: 14px;
     line-height: 20px;
     font-weight: 400;
+
+    ${props =>
+      props.$required &&
+      `
+      &::after {
+        padding-left: 4px;
+        color: var(--primary-color);
+        content: '*';
+      }
+    `}
   }
 
   .helpText {
@@ -51,14 +61,6 @@ export const FormItem = styled.div`
   input[name='name'],
   input[name='link'] {
     height: 44px;
-  }
-`;
-
-export const FormItemRequired = styled(FormItem)`
-  label::after {
-    padding-left: 4px;
-    color: var(--primary-color);
-    content: '*';
   }
 `;
 
