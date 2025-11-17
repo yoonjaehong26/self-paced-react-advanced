@@ -3,7 +3,8 @@ import Modal from '../UI/Modal';
 import { CATEGORIES, CATEGORY_IMAGE } from '../../data/restaurantCategories';
 import {
   ModalTitle,
-  FormItem, FormItemRequired,
+  FormItem,
+  FormItemRequired,
   ButtonContainer,
   ButtonPrimary,
 } from './RestaurantModal.styles';
@@ -31,9 +32,15 @@ function AddRestaurantModal({ onAddRestaurant, onClose }) {
       <form>
         <FormItemRequired>
           <label htmlFor="category">카테고리</label>
-          <select name="category" id="category" required value={category} onChange={(e) => setCategory(e.target.value)}>
+          <select
+            name="category"
+            id="category"
+            required
+            value={category}
+            onChange={e => setCategory(e.target.value)}
+          >
             <option value="">선택해 주세요</option>
-            {CATEGORIES.filter((c) => c !== '전체').map((categoryOption) => (
+            {CATEGORIES.filter(c => c !== '전체').map(categoryOption => (
               <option key={crypto.randomUUID()} value={categoryOption}>
                 {categoryOption}
               </option>
@@ -43,12 +50,26 @@ function AddRestaurantModal({ onAddRestaurant, onClose }) {
 
         <FormItemRequired>
           <label htmlFor="name">이름</label>
-          <input type="text" name="name" id="name" required value={name} onChange={(e) => setName(e.target.value)} />
+          <input
+            type="text"
+            name="name"
+            id="name"
+            required
+            value={name}
+            onChange={e => setName(e.target.value)}
+          />
         </FormItemRequired>
 
         <FormItem>
           <label htmlFor="description">설명</label>
-          <textarea name="description" id="description" cols="30" rows="5" value={description} onChange={(e) => setDescription(e.target.value)} />
+          <textarea
+            name="description"
+            id="description"
+            cols="30"
+            rows="5"
+            value={description}
+            onChange={e => setDescription(e.target.value)}
+          />
           <span className="helpText">메뉴 등 추가 정보를 입력해 주세요.</span>
         </FormItem>
 

@@ -1,8 +1,6 @@
 import StyledButton from './Button.styles';
 
-function Button({
-  className, label, onClick, children,
-}) {
+function Button({ className, label, onClick, children }) {
   return (
     <StyledButton
       as="button"

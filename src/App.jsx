@@ -22,20 +22,23 @@ function App() {
   }, []);
 
   const [selectedCategory, setSelectedCategory] = useState('전체');
-  const filteredRestaurants = selectedCategory === '전체'
-    ? restaurants
-    : restaurants.filter((e) => e.category === selectedCategory);
+  const filteredRestaurants =
+    selectedCategory === '전체'
+      ? restaurants
+      : restaurants.filter(e => e.category === selectedCategory);
 
   const [selectedRestaurant, setSelectedRestaurant] = useState(null);
-  const [isRestaurantDetailModalOpen, setIsRestaurantDetailModalOpen] = useState(false);
-  const handleRestaurantClick = (restaurant) => {
+  const [isRestaurantDetailModalOpen, setIsRestaurantDetailModalOpen] =
+    useState(false);
+  const handleRestaurantClick = restaurant => {
     setIsRestaurantDetailModalOpen(true);
     setSelectedRestaurant(restaurant);
   };
 
-  const [isAddRestaurantModalOpen, setIsAddRestaurantModalOpen] = useState(false);
+  const [isAddRestaurantModalOpen, setIsAddRestaurantModalOpen] =
+    useState(false);
 
-  const handleAddRestaurant = async (restaurant) => {
+  const handleAddRestaurant = async restaurant => {
     await fetch(`${LOCAL_SERVER_URL}/restaurants`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -48,36 +51,32 @@ function App() {
     <>
       <GlobalStyle />
       <div>
-
-        <HomeHeader onRestaurantAddButtonClick={() => {
-          setIsAddRestaurantModalOpen(true);
-        }}
+        <HomeHeader
+          onRestaurantAddButtonClick={() => {
+            setIsAddRestaurantModalOpen(true);
+          }}
         />
 
-      <main>
-        <RestaurantCategoryFilter
-          setSelectedCategory={setSelectedCategory}
-        />
-        <RestaurantList
-          restaurants={filteredRestaurants}
-          onRestaurantClick={handleRestaurantClick}
-        />
-      </main>
+        <main>
+          <RestaurantCategoryFilter setSelectedCategory={setSelectedCategory} />
+          <RestaurantList
+            restaurants={filteredRestaurants}
+            onRestaurantClick={handleRestaurantClick}
+          />
+        </main>
 
-      {isRestaurantDetailModalOpen && (
-      <RestaurantDetailModal
-        restaurant={selectedRestaurant}
-        onClose={() => setIsRestaurantDetailModalOpen(false)}
-      />
-      )}
-      {
-        isAddRestaurantModalOpen && (
+        {isRestaurantDetailModalOpen && (
+          <RestaurantDetailModal
+            restaurant={selectedRestaurant}
+            onClose={() => setIsRestaurantDetailModalOpen(false)}
+          />
+        )}
+        {isAddRestaurantModalOpen && (
           <AddRestaurantModal
             onAddRestaurant={handleAddRestaurant}
             onClose={() => setIsAddRestaurantModalOpen(false)}
           />
-        )
-      }
+        )}
       </div>
     </>
   );

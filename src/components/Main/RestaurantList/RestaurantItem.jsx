@@ -12,7 +12,10 @@ import {
 function RestaurantItem({ restaurant, onRestaurantClick }) {
   return (
     <RestaurantListItem>
-      <RestaurantButton type="button" onClick={() => onRestaurantClick(restaurant)}>
+      <RestaurantButton
+        type="button"
+        onClick={() => onRestaurantClick(restaurant)}
+      >
         <RestaurantCategory>
           <CategoryIcon
             src={CATEGORY_IMAGE[restaurant.category]}
@@ -21,7 +24,9 @@ function RestaurantItem({ restaurant, onRestaurantClick }) {
         </RestaurantCategory>
         <RestaurantInfo>
           <RestaurantName>{restaurant.name}</RestaurantName>
-          <RestaurantDescription>{restaurant.description}</RestaurantDescription>
+          <RestaurantDescription>
+            {restaurant.description}
+          </RestaurantDescription>
         </RestaurantInfo>
       </RestaurantButton>
     </RestaurantListItem>

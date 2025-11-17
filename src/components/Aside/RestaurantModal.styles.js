@@ -48,8 +48,8 @@ export const FormItem = styled.div`
     color: var(--grey-300);
   }
 
-  input[name="name"],
-  input[name="link"] {
+  input[name='name'],
+  input[name='link'] {
     height: 44px;
   }
 `;
@@ -58,7 +58,7 @@ export const FormItemRequired = styled(FormItem)`
   label::after {
     padding-left: 4px;
     color: var(--primary-color);
-    content: "*";
+    content: '*';
   }
 `;
 
