@@ -1,4 +1,3 @@
-import React from 'react';
 import { StyledSelect } from './Filter.styles';
 
 function Filter({ label, options, onChange }) {

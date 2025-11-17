@@ -19,6 +19,7 @@ module.exports = {
      "react/jsx-no-target-blank": "off",
     'linebreak-style': 0,
     "react/react-in-jsx-scope": "off",
+     'react/jsx-uses-react': 'off', 
     'jsx-a11y/label-has-associated-control': 'off', 
      "react/jsx-no-target-blank": "off",
     "react/prop-types": "off",
