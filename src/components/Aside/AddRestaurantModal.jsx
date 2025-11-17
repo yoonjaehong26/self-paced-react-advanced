@@ -41,7 +41,7 @@ function AddRestaurantModal({ onAddRestaurant, onClose }) {
           >
             <option value="">선택해 주세요</option>
             {CATEGORIES.filter(c => c !== '전체').map(categoryOption => (
-              <option key={crypto.randomUUID()} value={categoryOption}>
+              <option key={categoryOption} value={categoryOption}>
                 {categoryOption}
               </option>
             ))}
