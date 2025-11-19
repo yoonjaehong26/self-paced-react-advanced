@@ -8,5 +8,5 @@ export const RestaurantListContainer = styled.section`
 `;
 
 export const RestaurantItemList = styled.ul.attrs({
-  className: 'restaurant-list',
+
 })``;
