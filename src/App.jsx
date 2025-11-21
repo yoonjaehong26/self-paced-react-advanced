@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import HomeHeader from './components/Header/HomeHeader';
 import RestaurantCategoryFilter from './components/Main/RestaurantCategoryFilter';
-import RestaurantList from './components/Main/restaurantList/RestaurantList';
+import RestaurantList from './components/Main/RestaurantList/RestaurantList';
 import ModalRenderer from './components/Aside/ModalRenderer';
 import GlobalStyle from './GlobalStyle';
 
