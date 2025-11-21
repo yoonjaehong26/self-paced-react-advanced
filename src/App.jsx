@@ -22,6 +22,7 @@ function App() {
   useEffect(() => {
     fetchRestaurants();
   }, []);
+
   const [selectedCategory, setSelectedCategory] = useState('전체');
   const filteredRestaurants = selectedCategory === '전체'
     ? restaurants
