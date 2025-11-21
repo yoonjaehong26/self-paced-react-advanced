@@ -7,9 +7,11 @@ import {
   Button,
 } from '../RestaurantModal.styles';
 import ModalContext from '../../../contexts/ModalContext';
+import RestaurantContext from '../../../contexts/RestaurantContext';
 
-function RestaurantDetailModal({ restaurant }) {
+function RestaurantDetailModal() {
   const { setIsRestaurantDetailModalOpen } = useContext(ModalContext);
+  const { selectedRestaurant } = useContext(RestaurantContext);
 
   const handleClose = () => {
     setIsRestaurantDetailModalOpen(false);
@@ -17,9 +19,9 @@ function RestaurantDetailModal({ restaurant }) {
 
   return (
     <Modal onClose={handleClose}>
-      <ModalTitle>{restaurant.name}</ModalTitle>
+      <ModalTitle>{selectedRestaurant.name}</ModalTitle>
       <RestaurantInfo>
-        <p>{restaurant.description}</p>
+        <p>{selectedRestaurant.description}</p>
       </RestaurantInfo>
       <ButtonContainer>
         <Button $variant="primary" type="button" onClick={handleClose}>
