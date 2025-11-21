@@ -1,13 +1,15 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import HomeHeader from './components/Header/HomeHeader';
 import RestaurantCategoryFilter from './components/Main/RestaurantCategoryFilter';
 import RestaurantList from './components/Main/restaurantList/RestaurantList';
 import RestaurantDetailModal from './components/Aside/RestaurantDetailModal';
 import AddRestaurantModal from './components/Aside/AddRestaurantModal';
 import GlobalStyle from './GlobalStyle';
+import ModalContext from './contexts/ModalContext';
 
 function App() {
   const [restaurants, setRestaurants] = useState([]);
+  const { isRestaurantDetailModalOpen, setIsRestaurantDetailModalOpen } = useContext(ModalContext);
 
   const LOCAL_SERVER_URL = 'http://localhost:3000';
 
@@ -28,8 +30,6 @@ function App() {
       : restaurants.filter(e => e.category === selectedCategory);
 
   const [selectedRestaurant, setSelectedRestaurant] = useState(null);
-  const [isRestaurantDetailModalOpen, setIsRestaurantDetailModalOpen] =
-    useState(false);
   const handleRestaurantClick = restaurant => {
     setIsRestaurantDetailModalOpen(true);
     setSelectedRestaurant(restaurant);
