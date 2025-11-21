@@ -16,7 +16,7 @@ function RestaurantDetailModal({ restaurant }) {
   };
 
   return (
-    <Modal onClose={(handleClose)}>
+    <Modal onClose={handleClose}>
       <ModalTitle>{restaurant.name}</ModalTitle>
       <RestaurantInfo>
         <p>{restaurant.description}</p>

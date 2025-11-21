@@ -9,7 +9,10 @@ function HomeHeader() {
   return (
     <Gnb>
       <GnbTitle className="text-title">점심 뭐 먹지</GnbTitle>
-      <Button label="음식점 추가" onClick={() => setIsAddRestaurantModalOpen(true)}>
+      <Button
+        label="음식점 추가"
+        onClick={() => setIsAddRestaurantModalOpen(true)}
+      >
         <img src="/src/images/add-button.png" alt="음식점 추가" />
       </Button>
     </Gnb>
