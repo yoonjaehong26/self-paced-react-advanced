@@ -9,11 +9,7 @@ import ModalContext from './contexts/ModalContext';
 
 function App() {
   const [restaurants, setRestaurants] = useState([]);
-  const {
-    isRestaurantDetailModalOpen,
-    setIsRestaurantDetailModalOpen,
-    isAddRestaurantModalOpen,
-  } = useContext(ModalContext);
+  const { isRestaurantDetailModalOpen, isAddRestaurantModalOpen } = useContext(ModalContext);
 
   const LOCAL_SERVER_URL = 'http://localhost:3000';
 
@@ -26,17 +22,10 @@ function App() {
   useEffect(() => {
     fetchRestaurants();
   }, []);
-
   const [selectedCategory, setSelectedCategory] = useState('전체');
   const filteredRestaurants = selectedCategory === '전체'
     ? restaurants
     : restaurants.filter((e) => e.category === selectedCategory);
-
-  const [selectedRestaurant, setSelectedRestaurant] = useState(null);
-  const handleRestaurantClick = (restaurant) => {
-    setIsRestaurantDetailModalOpen(true);
-    setSelectedRestaurant(restaurant);
-  };
 
   const handleAddRestaurant = async (restaurant) => {
     await fetch(`${LOCAL_SERVER_URL}/restaurants`, {
@@ -55,15 +44,10 @@ function App() {
 
         <main>
           <RestaurantCategoryFilter setSelectedCategory={setSelectedCategory} />
-          <RestaurantList
-            restaurants={filteredRestaurants}
-            onRestaurantClick={handleRestaurantClick}
-          />
+          <RestaurantList restaurants={filteredRestaurants} />
         </main>
 
-        {isRestaurantDetailModalOpen && (
-          <RestaurantDetailModal restaurant={selectedRestaurant} />
-        )}
+        {isRestaurantDetailModalOpen && <RestaurantDetailModal />}
         {isAddRestaurantModalOpen && (
           <AddRestaurantModal onAddRestaurant={handleAddRestaurant} />
         )}
