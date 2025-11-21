@@ -42,10 +42,10 @@ function AddRestaurantModal({ onAddRestaurant }) {
             id="category"
             required
             value={category}
-            onChange={e => setCategory(e.target.value)}
+            onChange={(e) => setCategory(e.target.value)}
           >
             <option value="">선택해 주세요</option>
-            {CATEGORIES.filter(c => c !== '전체').map(categoryOption => (
+            {CATEGORIES.filter((c) => c !== '전체').map((categoryOption) => (
               <option key={categoryOption} value={categoryOption}>
                 {categoryOption}
               </option>
@@ -61,7 +61,7 @@ function AddRestaurantModal({ onAddRestaurant }) {
             id="name"
             required
             value={name}
-            onChange={e => setName(e.target.value)}
+            onChange={(e) => setName(e.target.value)}
           />
         </FormItem>
 
@@ -73,7 +73,7 @@ function AddRestaurantModal({ onAddRestaurant }) {
             cols="30"
             rows="5"
             value={description}
-            onChange={e => setDescription(e.target.value)}
+            onChange={(e) => setDescription(e.target.value)}
           />
           <span className="helpText">메뉴 등 추가 정보를 입력해 주세요.</span>
         </FormItem>

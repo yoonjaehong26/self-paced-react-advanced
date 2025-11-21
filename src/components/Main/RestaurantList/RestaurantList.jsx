@@ -8,7 +8,7 @@ function RestaurantList({ restaurants, onRestaurantClick }) {
   return (
     <RestaurantListContainer>
       <RestaurantItemList>
-        {restaurants.map(restaurant => (
+        {restaurants.map((restaurant) => (
           <RestaurantItem
             key={restaurant.id}
             restaurant={restaurant}
